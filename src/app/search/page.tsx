@@ -1,51 +1,60 @@
 "use client";
 
+import React, { useState, type ChangeEvent } from "react";
 import { useQuery } from "convex/react";
-import { useSearchParams } from "next/navigation";
+import { useDebounce } from "use-debounce";
 import { Search } from "lucide-react";
 import { api } from "../../../convex/_generated/api";
 import Spinner from "@/components/spinner";
 import EventCard from "@/components/event-card";
+import { Input } from "@/components/ui/input";
 
 export default function SearchPage() {
-  const searchParams = useSearchParams();
-  const query = searchParams.get("q") || "";
-  const searchResults = useQuery(api.events.search, { searchTerm: query });
+  const [query, setQuery] = useState("");
+  const [debouncedQuery] = useDebounce(query, 300); // 300ms debounce
 
-  if (!searchResults) {
-    return (
-      <div className="flex min-h-[400px] items-center justify-center">
-        <Spinner />
-      </div>
-    );
-  }
+  const searchResults = useQuery(api.events.search, {
+    searchTerm: debouncedQuery,
+  });
 
-  const upcomingEvents = searchResults
-    .filter((event) => event.eventDate > Date.now())
-    .sort((a, b) => a.eventDate - b.eventDate);
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value);
+  };
 
-  const pastEvents = searchResults
-    .filter((event) => event.eventDate <= Date.now())
-    .sort((a, b) => b.eventDate - a.eventDate);
+  const upcomingEvents =
+    searchResults
+      ?.filter((event) => event.eventDate > Date.now())
+      .sort((a, b) => a.eventDate - b.eventDate) || [];
+
+  const pastEvents =
+    searchResults
+      ?.filter((event) => event.eventDate <= Date.now())
+      .sort((a, b) => b.eventDate - a.eventDate) || [];
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Search Results Header */}
+        {/* Search Input */}
         <div className="mb-8 flex items-center gap-3">
           <Search className="h-6 w-6 text-gray-400" />
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">
-              Search Results for &quot;{query}&quot;
-            </h1>
-            <p className="mt-1 text-gray-600">
-              Found {searchResults.length} events
-            </p>
-          </div>
+          <Input
+            type="text"
+            value={query}
+            onChange={handleInputChange}
+            placeholder="Search events"
+            className="w-full rounded-lg border-gray-300 ring-1 px-4 py-2 shadow-sm outline-none focus:border-gray-300/40 transition-all duration-150"
+          />
         </div>
 
+        {/* Spinner */}
+        {!searchResults && (
+          <div className="flex min-h-[400px] items-center justify-center">
+            <Spinner />
+          </div>
+        )}
+
         {/* No Results State */}
-        {searchResults.length === 0 && (
+        {searchResults?.length === 0 && (
           <div className="rounded-xl bg-white py-12 text-center shadow-sm">
             <Search className="mx-auto mb-4 h-12 w-12 text-gray-300" />
             <h3 className="text-lg font-medium text-gray-900">

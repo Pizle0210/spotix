@@ -7,7 +7,18 @@ import { useRouter } from "next/navigation";
 import { api } from "../../convex/_generated/api";
 import { cn, useStorageUrl } from "@/lib/utils";
 import Image from "next/image";
-import { CalendarDays, Check, CircleArrowRight, LayoutListIcon, LoaderCircle, MapPin, PencilIcon, StarIcon, Ticket, XCircle } from "lucide-react";
+import {
+  CalendarDays,
+  Check,
+  CircleArrowRight,
+  LayoutListIcon,
+  LoaderCircle,
+  MapPin,
+  PencilIcon,
+  StarIcon,
+  Ticket,
+  XCircle,
+} from "lucide-react";
 import PurchaseTicket from "./purchase-ticket";
 
 export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
@@ -17,7 +28,6 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
   const event = useQuery(api.events.getById, { eventId });
   const availability = useQuery(api.events.getEventAvailability, { eventId });
 
-  // does the signedin user have a ticket
   const userTicket = useQuery(api.tickets.getUserTicketForEvent, {
     eventId,
     userId: user?.id ?? "",
@@ -30,7 +40,6 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
 
   const imgUrl = useStorageUrl(event?.imageStorageId);
 
-
   if (!event || !availability) {
     return null;
   }
@@ -38,8 +47,6 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
   const isPastEvent = event.eventDate < Date.now();
   const isEventOwner = user?.id === event?.userId;
 
-  //  render queue position
-  
   const renderQueuePosition = () => {
     if (!queuePosition || queuePosition.status !== "waiting") return null;
 
@@ -85,9 +92,7 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
     );
   };
 
-
   const renderTicketStatus = () => {
-    console.log("Rendering ticket status");
     if (!user) return null;
 
     if (isEventOwner) {
@@ -100,35 +105,33 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
             }}
             className="flex w-full items-center justify-center gap-2 rounded-lg bg-gray-100 px-6 py-3 font-medium text-gray-700 shadow-sm transition-colors duration-200 hover:bg-gray-200"
           >
-            <PencilIcon size={18} className=" " />
+            <PencilIcon size={18} />
             Edit Event
           </button>
         </div>
       );
     }
 
-    // ticket owner
-          if (userTicket) {
-            return (
-              <div className="mt-4 flex items-center justify-between rounded-lg border border-green-100 bg-green-50 p-3">
-                <div className="flex items-center">
-                  <Check className="mr-2 h-5 w-5 text-green-600" />
-                  <span className="font-medium text-green-700">
-                    You have a ticket!
-                  </span>
-                </div>
-                <button
-                  onClick={() => router.push(`/tickets/${userTicket._id}`)}
-                  className="flex items-center gap-1 rounded-full bg-green-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm transition-colors duration-200 hover:bg-green-700"
-                >
-                  View your ticket
-                </button>
-              </div>
-            );
-          }
+    if (userTicket) {
+      return (
+        <div className="mt-4 flex items-center justify-between rounded-lg border border-green-100 bg-green-50 p-3">
+          <div className="flex items-center">
+            <Check className="mr-2 h-5 w-5 text-green-600" />
+            <span className="font-medium text-green-700">
+              You have a ticket!
+            </span>
+          </div>
+          <button
+            onClick={() => router.push(`/tickets/${userTicket._id}`)}
+            className="flex items-center gap-1 rounded-full bg-green-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm transition-colors duration-200 hover:bg-green-700"
+          >
+            View your ticket
+          </button>
+        </div>
+      );
+    }
 
-          // user in queue
-          if (queuePosition) {
+    if (queuePosition) {
       return (
         <div className="mt-4">
           {queuePosition.status === "offered" && (
@@ -136,9 +139,9 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
           )}
           {renderQueuePosition()}
           {queuePosition.status === "expired" && (
-            <div className="p-3 bg-red-50 rounded-lg border border-red-100">
-              <span className="text-red-700 font-medium flex items-center">
-                <XCircle className="w-5 h-5 mr-2" />
+            <div className="rounded-lg border border-red-100 bg-red-50 p-3">
+              <span className="flex items-center font-medium text-red-700">
+                <XCircle className="mr-2 h-5 w-5" />
                 Offer expired
               </span>
             </div>
@@ -148,17 +151,15 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
     }
 
     return null;
-  }; 
-
-
-
+  };
 
   return (
     <div
-      className={`relative cursor-pointer overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-lg ${isPastEvent ? `opacity-75 hover:opacity-100` : ""}`}
+      className={`relative cursor-pointer overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-lg ${
+        isPastEvent ? `opacity-75 hover:opacity-100` : ""
+      }`}
       onClick={() => router.push(`/event/${eventId}`)}
     >
-      {/* event image */}
       {imgUrl && (
         <div className="relative h-48 w-full">
           <Image
@@ -172,22 +173,18 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
         </div>
       )}
 
-      {/* event details */}
       <div className={`p-6 ${imgUrl ? "relative" : ""}`}>
-        <div className="flex items-center justify-between">
-          {/* event and owners badge */}
-          <div>
-            <div className="flex flex-col items-start gap-2">
-              {isEventOwner && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-primary/90 px-2 py-1 text-xs font-medium text-white">
-                  <StarIcon className="h-3 w-3" />
-                  Your Event
-                </span>
-              )}
-              <h2 className="text-2xl font-bold text-gray-900">
-                {event!.name}
-              </h2>
-            </div>
+        <div className="mb-4 flex items-center justify-between">
+          <div className="flex flex-col items-start gap-2">
+            {isEventOwner && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-primary/90 px-2 py-1 text-xs font-medium text-white">
+                <StarIcon className="h-3 w-3" />
+                Your Event
+              </span>
+            )}
+            <h2 className="line-clamp-1 text-ellipsis text-2xl font-bold text-gray-900">
+              {event!.name}
+            </h2>
             {isPastEvent && (
               <span className="mt-2 inline-flex items-center rounded-full bg-orange-500 px-2.5 py-0.5 text-xs font-medium text-white/60">
                 Past Event
@@ -196,11 +193,14 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
           </div>
         </div>
 
-        {/* price Tag */}
-        <div className="ml-4 flex flex-col items-end gap-2">
+        <div className="mb-4 flex items-center justify-between">
           <span
             className={cn(
-              `rounded-full px-4 py-1.5 font-semibold ${isPastEvent ? "bg-gray-50 text-gray-500" : "bg-green-50 text-[#17BEBB]"}`,
+              `rounded-full px-4 py-1.5 font-semibold ${
+                isPastEvent
+                  ? "bg-gray-50 text-gray-500"
+                  : "bg-green-50 text-[#17BEBB]"
+              }`,
             )}
           >
             {event.currency}{" "}
@@ -216,19 +216,15 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
           )}
         </div>
 
-        {/* Event Details */}
         <div className="mt-4 space-y-3">
-          {/* category */}
-          <div className="category flex items-center text-gray-600">
+          <div className="flex items-center text-gray-600">
             <LayoutListIcon size={18} className="mr-2" />
             <span>{event.category}</span>
           </div>
-          {/* location */}
           <div className="flex items-center text-gray-600">
             <MapPin size={18} className="mr-2" />
-            <span>{event.location}</span>
+            <span className="line-clamp-1 text-ellipsis">{event.location}</span>
           </div>
-          {/* date */}
           <div className="flex items-center text-gray-600">
             <CalendarDays size={18} className="mr-2" />
             <span>
@@ -236,7 +232,6 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
               {isPastEvent && "(Ended)"}
             </span>
           </div>
-          {/* tickets */}
           <div className="flex items-center text-gray-600">
             <Ticket size={18} className="mr-2" />
             <span>
@@ -252,8 +247,8 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
             </span>
           </div>
         </div>
-        {/* Event Description */}
-        <p className="mt-4 line-clamp-2 text-sm text-gray-600">
+
+        <p className="mt-4 line-clamp-1 text-ellipsis text-sm text-gray-600">
           {event.description}
         </p>
 

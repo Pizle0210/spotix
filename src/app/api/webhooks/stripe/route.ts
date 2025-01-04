@@ -32,7 +32,6 @@ export async function POST(req: Request) {
   }
 
   const convex = getConvexClient();
-
   if (event.type === "checkout.session.completed") {
     console.log("Processing checkout.session.completed");
     const session = event.data.object as Stripe.Checkout.Session;
@@ -44,10 +43,12 @@ export async function POST(req: Request) {
       const result = await convex.mutation(api.events.purchaseTicket, {
         eventId: metadata.eventId,
         userId: metadata.userId,
+        currency:metadata.currency,
         waitingListId: metadata.waitingListId,
         paymentInfo: {
           paymentIntentId: session.payment_intent as string,
-          amount: session.amount_total ?? 0,
+          amount: session.amount_total ?? (0 as number),
+          currency: session.currency as string,
         },
       });
       console.log("Purchase ticket mutation completed:", result);
@@ -58,4 +59,4 @@ export async function POST(req: Request) {
   }
 
   return new Response(null, { status: 200 });
- }
+}

@@ -96,5 +96,5 @@ export default {
       },
     },
   },
-  plugins: [t_animate, forms, ],
+  plugins: [t_animate, forms],
 } satisfies Config;

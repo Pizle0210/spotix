@@ -8,11 +8,10 @@ import { DURATIONS } from "../../convex/constant";
 import { getConvexClient } from "@/lib/convex";
 import baseUrl from "@/lib/baseUrl";
 
-
-
 export type StripeCheckoutMetaData = {
   eventId: Id<"events">;
   userId: string;
+  currency: string;
   waitingListId: Id<"waitingList">;
 };
 
@@ -55,9 +54,12 @@ export async function createStripeCheckoutSession({
     throw new Error("Ticket offer has no expiration date");
   }
 
+  const currency = event.currency ?? "USD";
+
   const metadata: StripeCheckoutMetaData = {
     eventId,
     userId,
+    currency,
     waitingListId: queuePosition._id,
   };
 
@@ -68,18 +70,18 @@ export async function createStripeCheckoutSession({
       line_items: [
         {
           price_data: {
-            currency: "usd",
+            currency: currency,
             product_data: {
               name: event.name,
               description: event.description,
             },
-            unit_amount: Math.round(event.price * 100),//cent
+            unit_amount: Math.round(event.price * 100), //cent
           },
           quantity: 1,
         },
       ],
       payment_intent_data: {
-        application_fee_amount: Math.round(event.price * 100 * 0.05),//5 percent fee
+        application_fee_amount: Math.round(event.price * 100 * 0.05), //5 percent fee
       },
       expires_at: Math.floor(Date.now() / 1000) + DURATIONS.TICKET_OFFER / 1000, // 30 minutes (stripe checkout minimum expiration time)
       mode: "payment",
@@ -88,7 +90,7 @@ export async function createStripeCheckoutSession({
       metadata,
     },
     {
-      stripeAccount: stripeConnectId,//Stripe Connect ID for event owner of the ticket (Seller)
+      stripeAccount: stripeConnectId, //Stripe Connect ID for event owner of the ticket (Seller)
     },
   );
 

@@ -7,7 +7,7 @@
         "totalTickets": 100,
         "location": "MetLife Stadium, New Jersey",
         "eventDate": 1738141200000,
-        "userId": "user_2bFMHkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qvwBBtWqZErEoE0HWAlf7XP28s",
         "category": "concert"
     },
     {
@@ -18,7 +18,7 @@
         "totalTickets": 50,
         "location": "Madison Square Garden, New York",
         "eventDate": 1740825600000,
-        "userId": "user_2bFMHkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "sports"
     },
     {
@@ -29,7 +29,7 @@
         "totalTickets": 75,
         "location": "Richard Rodgers Theatre, New York",
         "eventDate": 1743403200000,
-        "userId": "user_2dOPKmMyZRXXazL7SGLSzhsEmzD",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "theater"
     },
     {
@@ -40,7 +40,7 @@
         "totalTickets": 200,
         "location": "Wembley Stadium, London",
         "eventDate": 1746009600000,
-        "userId": "user_2dOPKmMyZRXXazL7SGLSzhsEmzD",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "concert"
     },
     {
@@ -51,7 +51,7 @@
         "totalTickets": 1000,
         "location": "Javits Center, New York",
         "eventDate": 1748572800000,
-        "userId": "user_2dOPKmMyZRXXazL7SGLSzhsEmzD",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "convention"
     },
     {
@@ -62,7 +62,7 @@
         "totalTickets": 150,
         "location": "O2 Arena, London",
         "eventDate": 1751193600000,
-        "userId": "user_2eRTLnPxYQWWbzM8THMTaisFnzE",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "concert"
     },
     {
@@ -73,7 +73,7 @@
         "totalTickets": 60,
         "location": "Emirates Stadium, London",
         "eventDate": 1753785600000,
-        "userId": "user_2fQUMpNzXSVVczN9UINUbjsGozF",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "sports"
     },
     {
@@ -84,7 +84,7 @@
         "totalTickets": 80,
         "location": "Caesars Palace, Las Vegas",
         "eventDate": 1756377600000,
-        "userId": "user_2gPVNqOyYTWWdzO0VJOVcktHpzG",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "concert"
     },
     {
@@ -95,7 +95,7 @@
         "totalTickets": 40,
         "location": "Centre Court, All England Club, London",
         "eventDate": 1758969600000,
-        "userId": "user_2hQWOrPzZUXXezP1WKPWdluIqzH",
+        "userId": "user_2qvwBBtWqZErEoE0HWAlf7XP28s",
         "category": "sports"
     },
     {
@@ -106,205 +106,205 @@
         "totalTickets": 100,
         "location": "Palace Theatre, London",
         "eventDate": 1761561600000,
-        "userId": "user_2iRXPsQAaVYYfAQ2XLQXemvJrzI",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "theater"
     },
     {
         "name": "Burna Boy Live in Lagos",
         "description": "Experience Burna Boy's electrifying performance in Lagos!",
-        "price": 100.00,
+        "price": 50000.00,
         "currency": "NGN",
         "totalTickets": 500,
         "location": "Eko Convention Centre, Lagos",
         "eventDate": 1764153600000,
-        "userId": "user_3aBNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "concert"
     },
     {
         "name": "Wizkid Starboy Fest",
         "description": "Join Wizkid for an unforgettable night at the Starboy Fest!",
-        "price": 120.00,
+        "price": 50000.00,
         "currency": "NGN",
         "totalTickets": 600,
         "location": "Teslim Balogun Stadium, Lagos",
         "eventDate": 1766745600000,
-        "userId": "user_3bDNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "concert"
     },
     {
         "name": "Tiwa Savage Live",
         "description": "Catch Tiwa Savage live in concert!",
-        "price": 80.00,
+        "price": 50000.00,
         "currency": "NGN",
         "totalTickets": 400,
         "location": "Federal Palace Hotel, Lagos",
         "eventDate": 1738141200000,
-        "userId": "user_3cENCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "concert"
     },
     {
         "name": "Davido 30BG Concert",
         "description": "Join Davido and the 30 Billion Gang for a night to remember!",
-        "price": 150.00,
+        "price": 50000.00,
         "currency": "NGN",
         "totalTickets": 700,
         "location": "National Stadium, Abuja",
         "eventDate": 1740825600000,
-        "userId": "user_3dFNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "concert"
     },
     {
         "name": "Yemi Alade Live",
         "description": "Enjoy Yemi Alade's vibrant performance live!",
-        "price": 90.00,
+        "price": 25000.00,
         "currency": "NGN",
         "totalTickets": 450,
         "location": "Terra Kulture, Lagos",
         "eventDate": 1743403200000,
-        "userId": "user_3eGNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qvwBBtWqZErEoE0HWAlf7XP28s",
         "category": "concert"
     },
     {
         "name": "Lagos Fashion Week",
         "description": "Experience the best of African fashion at Lagos Fashion Week!",
-        "price": 50.00,
+        "price": 5000.00,
         "currency": "NGN",
         "totalTickets": 1000,
         "location": "Federal Palace Hotel, Lagos",
         "eventDate": 1746009600000,
-        "userId": "user_3fHNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "fashion"
     },
     {
         "name": "Afro Nation Nigeria",
         "description": "Join the biggest Afrobeat festival in Nigeria!",
-        "price": 200.00,
+        "price": 5000.00,
         "currency": "NGN",
         "totalTickets": 800,
         "location": "Landmark Beach, Lagos",
         "eventDate": 1748572800000,
-        "userId": "user_3gINCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "festival"
     },
     {
         "name": "Simi Live in Concert",
         "description": "Enjoy an intimate evening with Simi!",
-        "price": 70.00,
+        "price": 15000.00,
         "currency": "NGN",
         "totalTickets": 300,
         "location": "Muri Okunola Park, Lagos",
         "eventDate": 1751193600000,
-        "userId": "user_3hJNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qvwBBtWqZErEoE0HWAlf7XP28s",
         "category": "concert"
     },
     {
         "name": "Olamide Live",
         "description": "Catch Olamide's energetic performance live!",
-        "price": 110.00,
+        "price": 30000.00,
         "currency": "NGN",
         "totalTickets": 500,
         "location": "Eko Atlantic, Lagos",
         "eventDate": 1753785600000,
-        "userId": "user_3iKNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "concert"
     },
     {
         "name": "African Magic Viewers Choice Awards",
         "description": "Celebrate the best in African film and television!",
-        "price": 250.00,
+        "price": 25000.00,
         "currency": "NGN",
         "totalTickets": 600,
         "location": "Eko Hotel and Suites, Lagos",
         "eventDate": 1756377600000,
-        "userId": "user_3jLNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "awards"
     },
     {
         "name": "P-Square Reunion Concert",
         "description": "Witness the iconic P-Square duo live in concert!",
-        "price": 130.00,
+        "price": 50000.00,
         "currency": "NGN",
         "totalTickets": 550,
         "location": "Eko Hotel and Suites, Lagos",
         "eventDate": 1758969600000,
-        "userId": "user_3kMNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "concert"
     },
     {
         "name": "2Baba Live",
         "description": "Enjoy a night with the legendary 2Baba!",
-        "price": 95.00,
+        "price": 15000.00,
         "currency": "NGN",
         "totalTickets": 400,
         "location": "Eko Atlantic, Lagos",
         "eventDate": 1761561600000,
-        "userId": "user_3lNNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "concert"
     },
     {
         "name": "African Fashion Week Nigeria",
         "description": "Showcasing the best of African fashion and design!",
-        "price": 60.00,
+        "price": 5000.00,
         "currency": "NGN",
         "totalTickets": 900,
         "location": "Eko Hotel and Suites, Lagos",
         "eventDate": 1764153600000,
-        "userId": "user_3mONCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "fashion"
     },
     {
         "name": "Falz Experience",
         "description": "Join Falz for a unique and entertaining concert experience!",
-        "price": 85.00,
+        "price": 20000.00,
         "currency": "NGN",
         "totalTickets": 450,
         "location": "Eko Convention Centre, Lagos",
         "eventDate": 1766745600000,
-        "userId": "user_3nPNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "concert"
     },
     {
         "name": "Nigerian Idol Finale",
         "description": "Witness the grand finale of Nigerian Idol!",
-        "price": 70.00,
+        "price": 5000.00,
         "currency": "NGN",
         "totalTickets": 500,
         "location": "Eko Hotel and Suites, Lagos",
         "eventDate": 1738141200000,
-        "userId": "user_3oQNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "television"
     },
     {
         "name": "Lagos International Jazz Festival",
         "description": "Experience the best of jazz music from around the world!",
-        "price": 100.00,
+        "price": 10000.00,
         "currency": "NGN",
         "totalTickets": 600,
         "location": "Freedom Park, Lagos",
         "eventDate": 1740825600000,
-        "userId": "user_3pRNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "festival"
     },
     {
         "name": "Basketmouth Uncensored",
         "description": "Laugh out loud with Basketmouth's hilarious comedy show!",
-        "price": 50.00,
+        "price": 50000.00,
         "currency": "NGN",
         "totalTickets": 700,
         "location": "Eko Hotel and Suites, Lagos",
         "eventDate": 1743403200000,
-        "userId": "user_3qSNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "comedy"
     },
     {
         "name": "Sauti Sol Live in Nairobi",
         "description": "Join Sauti Sol for an unforgettable night of music!",
-        "price": 75.00,
+        "price": 1760.00,
         "currency": "KES",
         "totalTickets": 500,
         "location": "Carnivore Grounds, Nairobi",
         "eventDate": 1746009600000,
-        "userId": "user_3rTNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "concert"
     },
     {
@@ -315,29 +315,29 @@
         "totalTickets": 800,
         "location": "Cape Town International Convention Centre, Cape Town",
         "eventDate": 1748572800000,
-        "userId": "user_3sUNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qvwBBtWqZErEoE0HWAlf7XP28s",
         "category": "festival"
     },
     {
         "name": "Johannesburg Fashion Week",
         "description": "Showcasing the latest trends in fashion from South Africa!",
-        "price": 90.00,
+        "price": 190.00,
         "currency": "ZAR",
         "totalTickets": 700,
         "location": "Sandton Convention Centre, Johannesburg",
         "eventDate": 1751193600000,
-        "userId": "user_3tVNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qvwBBtWqZErEoE0HWAlf7XP28s",
         "category": "fashion"
     },
     {
         "name": "Ghana Music Awards",
         "description": "Celebrate the best in Ghanaian music!",
-        "price": 80.00,
+        "price": 13000.00,
         "currency": "GHS",
         "totalTickets": 600,
         "location": "Accra International Conference Centre, Accra",
         "eventDate": 1753785600000,
-        "userId": "user_3uWNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "awards"
     },
     {
@@ -348,7 +348,7 @@
         "totalTickets": 500,
         "location": "Palais des Congrès, Marrakech",
         "eventDate": 1756377600000,
-        "userId": "user_3vXNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qvwBBtWqZErEoE0HWAlf7XP28s",
         "category": "film"
     },
     {
@@ -359,7 +359,7 @@
         "totalTickets": 1000,
         "location": "Empire Polo Club, California",
         "eventDate": 1758969600000,
-        "userId": "user_4aYNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "festival"
     },
     {
@@ -370,7 +370,7 @@
         "totalTickets": 800,
         "location": "Spring Studios, New York",
         "eventDate": 1761561600000,
-        "userId": "user_4bZNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "fashion"
     },
     {
@@ -381,7 +381,7 @@
         "totalTickets": 500,
         "location": "Allegiant Stadium, Las Vegas",
         "eventDate": 1764153600000,
-        "userId": "user_4cANCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "sports"
     },
     {
@@ -392,7 +392,7 @@
         "totalTickets": 700,
         "location": "TIFF Bell Lightbox, Toronto",
         "eventDate": 1766745600000,
-        "userId": "user_4dBNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "film"
     },
     {
@@ -403,7 +403,7 @@
         "totalTickets": 900,
         "location": "Place des Arts, Montreal",
         "eventDate": 1738141200000,
-        "userId": "user_4eCNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "festival"
     },
     {
@@ -414,7 +414,7 @@
         "totalTickets": 500,
         "location": "The Cavern Club, Liverpool",
         "eventDate": 1735151400000,
-        "userId": "user_5aYNCkGxZPWVVyJ5QEJQxfsCkxB",
+        "userId": "user_2qgU8gptOEvG2qKdiLuhUvo9ZCP",
         "category": "concert"
     }
 ]

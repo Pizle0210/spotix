@@ -16,7 +16,6 @@ export type Metrics = {
 // Initialize rate limiter
 //
 
-
 //& get all
 export const get = query({
   args: {},
@@ -27,7 +26,6 @@ export const get = query({
       .collect();
   },
 });
-
 
 //& get by id
 export const getById = query({
@@ -111,8 +109,6 @@ export const checkAvailability = query({
   },
 });
 
-
-
 //^ Join waiting list for an event
 export const joinWaitingList = mutation({
   // Function takes an event ID and user ID as arguments
@@ -192,22 +188,24 @@ export const joinWaitingList = mutation({
   },
 });
 
-
 //* Purchase ticket
 export const purchaseTicket = mutation({
   args: {
     eventId: v.id("events"),
     userId: v.string(),
+    currency:v.string(),
     waitingListId: v.id("waitingList"),
     paymentInfo: v.object({
       paymentIntentId: v.string(),
       amount: v.number(),
+      currency:v.string()
     }),
   },
-  handler: async (ctx, { eventId, userId, waitingListId, paymentInfo }) => {
+  handler: async (ctx, { eventId, userId,currency, waitingListId, paymentInfo }) => {
     console.log("Starting purchaseTicket handler", {
       eventId,
       userId,
+      currency,
       waitingListId,
     });
 
@@ -225,7 +223,7 @@ export const purchaseTicket = mutation({
         status: waitingListEntry.status,
       });
       throw new Error(
-        "Invalid waiting list status - ticket offer may have expired"
+        "Invalid waiting list status - ticket offer may have expired",
       );
     }
 
@@ -257,6 +255,7 @@ export const purchaseTicket = mutation({
       await ctx.db.insert("tickets", {
         eventId,
         userId,
+        currency,
         purchasedAt: Date.now(),
         status: TICKET_STATUS.VALID,
         paymentIntentId: paymentInfo.paymentIntentId,
@@ -281,6 +280,7 @@ export const purchaseTicket = mutation({
 });
 
 
+
 //* Get user's tickets with event information
 export const getUserTickets = query({
   args: { userId: v.string() },
@@ -297,22 +297,12 @@ export const getUserTickets = query({
           ...ticket,
           event,
         };
-      })
+      }),
     );
 
     return ticketsWithEvents;
   },
 });
-
-
-
-
-
-
-
-
-
-
 
 //^ get event availability
 export const getEventAvailability = query({
@@ -359,9 +349,6 @@ export const getEventAvailability = query({
     };
   },
 });
-
-
-
 
 //&  update event
 export const updateEvent = mutation({

@@ -4,6 +4,7 @@ import { useQuery } from "convex/react";
 import { useUser } from "@clerk/nextjs";
 import { Ticket } from "lucide-react";
 import { api } from "../../../convex/_generated/api";
+import TicketCard from "@/components/ticket-card";
 
 export default function MyTicketsPage() {
   const { user } = useUser();
@@ -28,14 +29,14 @@ export default function MyTicketsPage() {
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">My Tickets</h1>
+            <h1 className="text-3xl font-bold text-gray-900 antialiased md:tracking-wider">My Tickets</h1>
             <p className="mt-2 text-gray-600">
               Manage and view all your tickets in one place
             </p>
           </div>
           <div className="rounded-lg border border-gray-100 bg-white px-4 py-2 shadow-sm">
             <div className="flex items-center gap-2 text-gray-600">
-              <Ticket className="h-5 w-5" />
+              <Ticket size={20}/>
               <span className="font-medium">
                 {tickets.length} Total Tickets
               </span>
@@ -44,8 +45,8 @@ export default function MyTicketsPage() {
         </div>
 
         {upcomingTickets.length > 0 && (
-          <div className="mb-12">
-            <h2 className="mb-4 text-xl font-semibold text-gray-900">
+          <div className="mb-16">
+            <h2 className="mb-4 text-2xl antialiased font-semibold text-gray-900">
               Upcoming Events
             </h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

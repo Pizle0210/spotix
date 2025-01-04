@@ -38,7 +38,7 @@ export default function TicketCard({ ticketId }: { ticketId: Id<"tickets"> }) {
   return (
     <Link
       href={`/tickets/${ticketId}`}
-      className={`block rounded-lg border bg-white shadow-sm transition-all duration-200 hover:shadow-md ${
+      className={`block rounded-lg border group bg-white shadow-sm transition-all duration-200 hover:shadow-md ${
         ticket.event.is_cancelled ? "border-red-200" : "border-gray-100"
       } overflow-hidden ${isPastEvent ? "opacity-75 hover:opacity-100" : ""}`}
     >
@@ -103,7 +103,7 @@ export default function TicketCard({ ticketId }: { ticketId: Id<"tickets"> }) {
                 ? "text-red-600"
                 : isPastEvent
                   ? "text-gray-600"
-                  : "text-blue-600"
+                  : "text-teal-600"
             }`}
           >
             {ticket.event.currency}{" "}
@@ -113,7 +113,7 @@ export default function TicketCard({ ticketId }: { ticketId: Id<"tickets"> }) {
             })}
           </span>
           <span className="flex items-center text-gray-600">
-            View Ticket <ArrowRight className="ml-1 h-4 w-4" />
+            View Ticket <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1.5 group-hover:text-teal-500 group-hover:transition-all group-hover:duration-200 group-hover:scale-x-150 " />
           </span>
         </div>
       </div>

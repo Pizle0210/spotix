@@ -54,7 +54,8 @@ export async function createStripeCheckoutSession({
     throw new Error("Ticket offer has no expiration date");
   }
 
-  const currency = event.currency || "USD";
+  const currency = event.currency ?? "USD";
+
   const metadata: StripeCheckoutMetaData = {
     eventId,
     userId,

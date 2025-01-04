@@ -52,27 +52,28 @@ export default function PurchaseTicket({ eventId }: { eventId: Id<"events"> }) {
     return () => clearInterval(interval);
   }, [offerExpiresAt, isExpired]);
 
-    async function handlePurchase() {
-      if (!user) {
-        alert("You must be logged in to purchase a ticket.");
-        return;
-      }
-
-      try {
-        setIsLoading(true);
-        const { sessionUrl } = await createStripeCheckoutSession({
-          eventId,
-        });
-
-        if (sessionUrl) {
-          router.push(sessionUrl);
-        }
-      } catch (error) {
-        console.error("Error creating checkout session:", error);
-      } finally {
-        setIsLoading(false);
-      }
+  async function handlePurchase() {
+    if (!user) {
+      alert("You must be logged in to purchase a ticket.");
+      return;
     }
+
+    try {
+      setIsLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 4000));
+      const { sessionUrl } = await createStripeCheckoutSession({
+        eventId,
+      });
+
+      if (sessionUrl) {
+        router.push(sessionUrl);
+      }
+    } catch (error) {
+      console.error("Error creating checkout session:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   if (!user || !queuePosition || queuePosition.status !== "offered") {
     return null;

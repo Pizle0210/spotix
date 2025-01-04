@@ -182,7 +182,9 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
                 Your Event
               </span>
             )}
-            <h2 className="text-2xl font-bold text-ellipsis line-clamp-1 text-gray-900">{event!.name}</h2>
+            <h2 className="line-clamp-1 text-ellipsis text-2xl font-bold text-gray-900">
+              {event!.name}
+            </h2>
             {isPastEvent && (
               <span className="mt-2 inline-flex items-center rounded-full bg-orange-500 px-2.5 py-0.5 text-xs font-medium text-white/60">
                 Past Event
@@ -221,7 +223,7 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
           </div>
           <div className="flex items-center text-gray-600">
             <MapPin size={18} className="mr-2" />
-            <span>{event.location}</span>
+            <span className="line-clamp-1 text-ellipsis">{event.location}</span>
           </div>
           <div className="flex items-center text-gray-600">
             <CalendarDays size={18} className="mr-2" />
@@ -246,7 +248,7 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
           </div>
         </div>
 
-        <p className="mt-4 text-ellipsis line-clamp-1 text-sm text-gray-600">
+        <p className="mt-4 line-clamp-1 text-ellipsis text-sm text-gray-600">
           {event.description}
         </p>
 

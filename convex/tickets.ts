@@ -26,7 +26,7 @@ export const getTicketWithDetails = query({
     if (!ticket) return null;
 
     const event = await ctx.db.get(ticket.eventId);
-
+    
     return {
       ...ticket,
       event,

@@ -193,15 +193,18 @@ export const purchaseTicket = mutation({
   args: {
     eventId: v.id("events"),
     userId: v.string(),
-    currency:v.string(),
+    currency: v.string(),
     waitingListId: v.id("waitingList"),
     paymentInfo: v.object({
       paymentIntentId: v.string(),
       amount: v.number(),
-      currency:v.string()
+      currency: v.string(),
     }),
   },
-  handler: async (ctx, { eventId, userId,currency, waitingListId, paymentInfo }) => {
+  handler: async (
+    ctx,
+    { eventId, userId, currency, waitingListId, paymentInfo },
+  ) => {
     console.log("Starting purchaseTicket handler", {
       eventId,
       userId,
@@ -278,8 +281,6 @@ export const purchaseTicket = mutation({
     }
   },
 });
-
-
 
 //* Get user's tickets with event information
 export const getUserTickets = query({
@@ -387,5 +388,26 @@ export const updateEvent = mutation({
 
     await ctx.db.patch(eventId, updates);
     return eventId;
+  },
+});
+
+
+//! Search
+export const search = query({
+  args: { searchTerm: v.string() },
+  handler: async (ctx, { searchTerm }) => {
+    const events = await ctx.db
+      .query("events")
+      .filter((q) => q.eq(q.field("is_cancelled"), undefined))
+      .collect();
+
+    return events.filter((event) => {
+      const searchTermLower = searchTerm.toLowerCase();
+      return (
+        event.name.toLowerCase().includes(searchTermLower) ||
+        event.description.toLowerCase().includes(searchTermLower) ||
+        event.location.toLowerCase().includes(searchTermLower)
+      );
+    });
   },
 });

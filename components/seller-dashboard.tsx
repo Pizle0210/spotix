@@ -10,12 +10,12 @@ import Link from "next/link";
 import {
   getStripeConnectAccountStatus,
   type AccountStatus,
-} from "../src/actions/getStripeConnectAccountStatus";
+} from "@/actions/getStripeConnectAccountStatus";
 import { api } from "../convex/_generated/api";
 import Spinner from "./spinner";
-import { createStripeConnectLoginLink } from "../src/actions/createStripeConnectLoginLink";
-import { createStripeConnectCustomer } from "../src/actions/createStripeConnectCustomer";
-import { createStripeConnectAccountLink } from "../src/actions/createStripeConnectAccountLink";
+import { createStripeConnectLoginLink } from "@/actions/createStripeConnectLoginLink";
+import { createStripeConnectCustomer } from "@/actions/createStripeConnectCustomer";
+import { createStripeConnectAccountLink } from "@/actions/createStripeConnectAccountLink";
 
 export default function SellerDashboard() {
   const [accountCreatePending, setAccountCreatePending] = useState(false);

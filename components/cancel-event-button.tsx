@@ -7,7 +7,7 @@ import { useMutation } from "convex/react";
 import type { Id } from "../convex/_generated/dataModel";
 import { api } from "../convex/_generated/api";
 import { toast } from "sonner";
-import { refundEventTickets } from "../src/actions/refund-event-ticket";
+import { refundEventTickets } from "@/actions/refund-event-ticket";
 
 export default function CancelEventButton({
   eventId,

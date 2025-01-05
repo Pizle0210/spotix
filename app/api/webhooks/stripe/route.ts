@@ -3,7 +3,7 @@ import { stripe } from "../../../../lib/stripe";
 import { getConvexClient } from "../../../../lib/convex";
 import Stripe from "stripe";
 import type { StripeCheckoutMetaData } from "../../../../actions/createStripeCheckoutSession";
-import { api } from "../../../../../convex/_generated/api";
+import { api } from "../../../../convex/_generated/api";
 
 export async function POST(req: Request) {
   console.log("Webhook received");

@@ -136,7 +136,7 @@ export default function SellerDashboard() {
                     setAccountCreatePending(false);
                   }
                 }}
-                className="rounded-lg bg-blue-600 px-6 py-2 text-white transition-colors hover:bg-blue-700"
+                className="rounded-lg bg-black/80 px-6 py-2 text-white transition-colors hover:bg-black"
               >
                 Create Seller Account
               </button>

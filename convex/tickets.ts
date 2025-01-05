@@ -18,7 +18,7 @@ export const getUserTicketForEvent = query({
   },
 });
 
-// * get ticket with id
+// * get ticket with details
 export const getTicketWithDetails = query({
   args: { ticketId: v.id("tickets") },
   handler: async (ctx, { ticketId }) => {
@@ -26,10 +26,25 @@ export const getTicketWithDetails = query({
     if (!ticket) return null;
 
     const event = await ctx.db.get(ticket.eventId);
-    
+
     return {
       ...ticket,
       event,
     };
+  },
+});
+
+
+// * get valid tickets
+export const getValidTicketsForEvent = query({
+  args: { eventId: v.id("events") },
+  handler: async (ctx, { eventId }) => {
+    return await ctx.db
+      .query("tickets")
+      .withIndex("by_event", (q) => q.eq("eventId", eventId))
+      .filter((q) =>
+        q.or(q.eq(q.field("status"), "valid"), q.eq(q.field("status"), "used")),
+      )
+      .collect();
   },
 });

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { createStripeConnectAccountLink } from "../../../../src/actions/createStripeConnectAccountLink";
+import { createStripeConnectAccountLink } from "@/actions/createStripeConnectAccountLink";
 import { Loader2, AlertCircle } from "lucide-react";
 
 export default function Refresh() {

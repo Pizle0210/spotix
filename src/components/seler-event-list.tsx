@@ -76,21 +76,22 @@ function SellerEventCard({
       className={`rounded-lg border bg-white shadow-sm ${event.is_cancelled ? "border-red-200" : "border-gray-200"} overflow-hidden`}
     >
       <div className="p-6">
-        <div className="flex items-start gap-6">
+        <div className="md:flow-row flex flex-col items-start gap-6">
           {/* Event Image */}
           {imageUrl && (
-            <div className="relative h-40 w-40 shrink-0 overflow-hidden rounded-lg">
+            <div className="relative w-full shrink-0 overflow-hidden rounded-lg sm:h-56 sm:w-56">
               <Image
                 src={imageUrl}
                 alt={event.name}
-                fill
-                className="object-cover"
+                width={224}
+                height={224}
+                className="aspect-square w-full object-cover"
               />
             </div>
           )}
 
           {/* Event Details */}
-          <div className="min-w-0 flex-1">
+          <div className="flex min-w-0 flex-col sm:flex-1">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h3 className="text-xl font-semibold text-gray-900">
@@ -106,7 +107,7 @@ function SellerEventCard({
                   </div>
                 )}
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col items-center gap-2 sm:flex-row">
                 {!isPastEvent && !event.is_cancelled && (
                   <>
                     <Link
@@ -158,10 +159,13 @@ function SellerEventCard({
                   </span>
                 </div>
                 <p className="text-2xl font-semibold text-gray-900">
-                  £
+                  {event?.currency}{" "}
                   {event.is_cancelled
                     ? event.metrics.refundedTickets * event.price
-                    : event.metrics.revenue}
+                    : event.metrics.revenue.toLocaleString(undefined, {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}
                 </p>
               </div>
 
